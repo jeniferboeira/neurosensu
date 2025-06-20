@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroSensu™ Store</title>
+  <link rel="icon" href="icon.png" type="image/x-icon">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #000000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .hero-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px 20px;
+      background-color: #e9ecef;
+    }
+
+    .hero-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 50%;
+      border-radius: 10px;
+      height: auto;
+    }
+
+    .hero-text {
+      flex: 1 1 400px;
+      max-width: 600px;
+    }
+
+    .hero-text h2 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    .product-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .product-card h3 {
+      margin: 10px 0;
+    }
+
+    .buy-btn {
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    .info-btn {
+      background-color: #808080;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    .buy-btn:hover {
+      background-color: #084298;
+    }
+
+    .cart-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #0d6efd;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 400px;
+      height: 100%;
+      background: white;
+      box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+      padding: 20px;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      z-index: 1000;
+      transform: translateX(100%);
+    }
+
+    .cart-panel.active {
+      transform: translateX(0);
+    }
+
+    .cart-item {
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+
+    .endereco-form {
+      margin-top: 20px;
+      display: none;
+    }
+
+    .endereco-form input {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 8px;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 20px;
+      float: right;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #000000;
+      color: white;
+    }
+
+    #product-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #product-modal .modal-box {
+      background: white;
+      padding: 20px;
+      max-width: 500px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    #product-modal button.close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      <img src="logo.png" alt="NeuroSensu Logo" style="height: 120px; vertical-align: middle;">
+      | Sinta o mundo além dos sentidos
+    </h1>
+  </header>
+
+  <button class="cart-btn" onclick="toggleCart()">🛒 Carrinho (<span id="cart-count">0</span>)</button>
+
+  <section class="hero-section">
+    <div class="hero-image">
+      <img src="opening.jpeg" alt="NeuroSensu Future">
+    </div>
+    <div class="hero-text">
+      <h2>Dispositivo Neural Multissensorial</h2>
+      <p><strong>NeuroSensu™</strong> é um dispositivo revolucionário com inteligência artificial embarcada, sensores multissensoriais e conectividade Bluetooth 6.0. Ele traduz o que é visto em sensações físicas e emocionais, oferecendo uma nova forma de percepção para deficientes visuais, gamers, pesquisadores e entusiastas da imersão sensorial.</p>
+    </div>
+  </section>
+
+  <section class="product-gallery">
+    <div class="product-card">
+      <img src="gamer.png" alt="NeuroSensu Gamer">
+      <h3>NeuroSensu™ Gamer</h3>
+      <p>Ideal para jogos e simulações em 3D. Imersão total.</p>
+      <p>R$ 99.999,90</p>
+      <button class="buy-btn" onclick="addToCart('NeuroSensu™ Gamer', 99999.90)">Comprar</button>
+      <button class="info-btn" onclick="showModal('NeuroSensu™ Gamer', `
+        <p>O NeuroSensu™ Gamer foi desenvolvido para proporcionar experiências multissensoriais avançadas em jogos e simulações. Compatível com as principais plataformas e equipado com IA reativa, oferece imersão total.</p>
+        <p><strong>Na caixa contém:</strong> Um NeuroSensu Gamer, um chip para implante*, carregador solar, carregador por indução, bateria íon-lítio de 20.000 mAh, manual de instruções.</p>
+        <p><strong>Peso:</strong> 500g</p>
+        <p><strong>* Cirurgia de implante não inclusa</strong></p>
+      `)">Saiba mais</button>
+    </div>
+    <div class="product-card">
+      <img src="future.jpeg" alt="NeuroSensu Future">
+      <h3>NeuroSensu™ Future</h3>
+      <p>Design elegante e leve. Integração completa com IA.</p>
+      <p>R$ 109.999,90</p>
+      <button class="buy-btn" onclick="addToCart('NeuroSensu™ Future', 21999.90)">Comprar</button>
+      <button class="info-btn" onclick="showModal('NeuroSensu™ Future', `
+        <p>O NeuroSensu™ Future combina leveza, elegância e alta tecnologia. Ideal para usuários que buscam uma integração profunda entre percepção sensorial e inteligência artificial no dia a dia.</p>
+        <p><strong>Na caixa contém:</strong> Um NeuroSensu Future, um chip para implante*, carregador solar, carregador por indução, bateria íon-lítio de 15.000 mAh, manual de instruções.</p>
+        <p><strong>Peso:</strong> 300g</p>
+        <p><strong>* Cirurgia de implante não inclusa</strong></p>
+`)">Saiba mais</button>
+    </div>
+    <div class="product-card">
+      <img src="discrete.png" alt="NeuroSensu Discrete">
+      <h3>NeuroSensu™ Discrete</h3>
+      <p>Ultracompacto e discreto, ideal para o dia a dia.</p>
+      <p>R$ 89.999,90</p>
+      <button class="buy-btn" onclick="addToCart('NeuroSensu™ Discrete', 89999.90)">Comprar</button>
+      <button class="info-btn" onclick="showModal('NeuroSensu™ Discrete', `
+        <p>O modelo Discrete é ultracompacto e discreto, perfeito para uso cotidiano. Apesar do tamanho reduzido, oferece desempenho completo com sensores de última geração.</p>
+        <p><strong>Na caixa contém:</strong> Um NeuroSensu Discrete, um chip para implante*, carregador solar, carregador por indução, bateria íon-lítio de 10.000 mAh, manual de instruções.</p>
+        <p><strong>Peso:</strong> 100g</p>
+        <p><strong>* Cirurgia de implante não inclusa</strong></p>
+`)">Saiba mais</button>
+    </div>
+  </section>
+
+  <div id="product-modal">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal()">✖</button>
+      <h3 id="modal-title"></h3>
+      <p id="modal-content"></p>
+    </div>
+  </div>
+
+  <div class="cart-panel" id="cart-panel">
+    <button class="close-cart" onclick="toggleCart()">✖</button>
+    <h2>Seu Carrinho</h2>
+    <div id="cart-items"></div>
+    <h3>Total: R$ <span id="cart-total">0.00</span></h3>
+    <button class="buy-btn" onclick="showEndereco()">Finalizar Compra</button>
+
+    <form class="endereco-form" id="endereco-form" onsubmit="finalizarCompra(event)">
+      <h3>Endereço de Entrega</h3>
+      <input type="text" placeholder="Nome completo" required>
+      <input type="text" placeholder="Rua, número" required>
+      <input type="text" placeholder="Bairro" required>
+      <input type="text" placeholder="Cidade" required>
+      <input type="text" placeholder="Estado" required>
+      <input type="text" placeholder="CEP" required>
+      <button class="buy-btn" type="submit">Confirmar Pedido</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 NeuroSensu™. Todos os direitos reservados.
+    <br>Projeto de E-Commerce criado por:
+    <br>Ana Paula, Daniele Cristina, Jenifer Silva, Larissa Aparecida, Rebeca Sara 
+    <br>Disciplina: Sistemas de Tecnologia da Informação
+    <br>Professor: Alexandre Lisboa da Silva
+    <br>Tecnologia em Processos Gerenciais
+    <br>1ª Fase - 2025/01
+    <p><strong><a href="custos.html" style="color: white;font-size: 30px;">Clique aqui para Tabela de Custos</a></strong></p>
+  </footer>
+
+  <script>
+    let cart = [];
+
+    function addToCart(produto, preco) {
+      cart.push({ produto, preco });
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cart-items");
+      const cartCount = document.getElementById("cart-count");
+      const cartTotal = document.getElementById("cart-total");
+
+      cartItems.innerHTML = "";
+      let total = 0;
+      cart.forEach((item, index) => {
+        cartItems.innerHTML += `
+          <div class="cart-item">
+            ${item.produto} - R$ ${item.preco.toFixed(2)}
+            <button onclick="removeItem(${index})">Remover</button>
+          </div>`;
+        total += item.preco;
+      });
+
+      cartCount.innerText = cart.length;
+      cartTotal.innerText = total.toFixed(2);
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function toggleCart() {
+      document.getElementById("cart-panel").classList.toggle("active");
+    }
+
+    function showEndereco() {
+      document.getElementById("endereco-form").style.display = "block";
+    }
+
+    function finalizarCompra(event) {
+      event.preventDefault();
+      alert("Compra finalizada com sucesso! Em breve você receberá um e-mail com os detalhes para pagamento.");
+      cart = [];
+      updateCart();
+      document.getElementById("endereco-form").reset();
+      document.getElementById("endereco-form").style.display = "none";
+      toggleCart();
+    }
+
+    function showModal(produto, descricaoHtml) {
+      document.getElementById("modal-title").innerText = produto;
+      document.getElementById("modal-content").innerHTML = descricaoHtml;
+      document.getElementById("product-modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("product-modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>

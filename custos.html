@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeuroSensu™ Store - Tabela de Custos</title>
+  <link rel="icon" href="icon.png" type="image/x-icon">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0 20px 40px;
+      color: #333;
+    }
+    header {
+      background-color: #000000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: normal;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0d6efd;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      background-color: #0d6efd;
+      color: white;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .explanation {
+      font-size: 0.95em;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+    .total-example {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #0d6efd;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #000000;
+      color: white;
+      margin-top: 50px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      <img src="logo.png" alt="NeuroSensu Logo" style="height: 120px; vertical-align: middle;">
+      | Sinta o mundo além dos sentidos
+    </h1>
+  </header>
+
+  <main>
+    <h2>Tabela de Custos para Desenvolvimento da Loja Virtual</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Descrição</th>
+          <th>Custo Estimado (R$)</th>
+          <th>Observações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Desenvolvimento do Site</td>
+          <td>Criação do site, design, programação básica</td>
+          <td>2.000,00</td>
+          <td>Site simples com até 5 páginas</td>
+        </tr>        
+        <tr>
+          <td>Criação de Logomarca</td>
+          <td>Arte visual da empresa</td>
+          <td>250,00</td>
+          <td>Logomarca simples</td>
+        </tr>
+        <tr>
+          <td>Hospedagem</td>
+          <td>Serviço de hospedagem mensal</td>
+          <td>30,00 / mês</td>
+          <td>Hospedagem compartilhada confiável</td>
+        </tr>
+        <tr>
+          <td>Domínio</td>
+          <td>Registro do domínio (ex: www.minhaloja.com)</td>
+          <td>40,00 / ano</td>
+          <td>Registro anual, renovação obrigatória</td>
+        </tr>
+        <tr>
+          <td>Certificado SSL</td>
+          <td>Segurança para conexões HTTPS</td>
+          <td>Gratuito a 200,00 / ano</td>
+          <td>Pode ser gratuito via Let’s Encrypt</td>
+        </tr>
+        <tr>
+          <td>Sistema de Pagamento Digital</td>
+          <td>Taxas e mensalidades de gateways (ex: PayPal, PagSeguro, MercadoPago)</td>
+          <td>0,00 a 50,00 / mês + taxas por transação</td>
+          <td>Taxa variável por venda, pode incluir mensalidade</td>
+        </tr>
+        <tr>
+          <td>Taxas por Transação</td>
+          <td>Percentual cobrado por venda realizada</td>
+          <td>2,5% a 5% por transação</td>
+          <td>Depende do gateway escolhido</td>
+        </tr>
+        <tr>
+          <td>Envio dos Produtos</td>
+          <td>Custos com transportadora e embalagem</td>
+          <td>15,00 a 50,00 por envio</td>
+          <td>Variável conforme região e peso do produto</td>
+        </tr>
+        <tr>
+          <td>Manutenção e Atualizações</td>
+          <td>Atualizações, correções e suporte</td>
+          <td>200,00 / mês</td>
+          <td>Pode variar conforme necessidade</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Exemplo de Cálculo Mensal</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Valor (R$)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Hospedagem</td><td>30,00</td></tr>
+        <tr><td>Domínio (prorata mensal)</td><td>3,33 (40/12 meses)</td></tr>
+        <tr><td>Certificado SSL</td><td>0,00 (usando grátis)</td></tr>
+        <tr><td>Pagamento Digital (mensalidade)</td><td>20,00</td></tr>
+        <tr><td>Taxas por 10 vendas (R$ 2.000 cada, 3% de taxa)</td><td>180,00</td></tr>
+        <tr><td>Envio (10 envios x R$ 20)</td><td>200,00</td></tr>
+        <tr><td>Manutenção</td><td>200,00</td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="total-example">Total mensal aproximado</td>
+          <td class="total-example">471,33</td>
+        </tr>
+      </tfoot>
+    </table>
+  </main>
+
+  <footer>
+    &copy; 2025 NeuroSensu™. Todos os direitos reservados.
+    <br>Projeto de E-Commerce criado por:
+    <br>Ana Paula, Daniele Cristina, Jenifer Silva, Larissa Aparecida, Rebeca Sara 
+    <br>Disciplina: Sistemas de Tecnologia da Informação
+    <br>Professor: Alexandre Lisboa da Silva
+    <br>Tecnologia em Processos Gerenciais
+    <br>1ª Fase - 2025/01
+    <br>Faculdade Municipal de Palhoça
+    <br><a href="custos.html">Custos</a>.</p>
+  </footer>
+</body>
+</html>
